@@ -1,6 +1,9 @@
 {
   "name": "backend",
   "version": "0.0.1",
+  "engines": {
+    "node": "22.x"
+  },
   "description": "",
   "author": "",
   "private": true,
@@ -36,6 +39,7 @@
     "dotenv": "^16.4.7",
     "express": "^5.0.1",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.13.0",
     "mongoose": "^8.10.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
