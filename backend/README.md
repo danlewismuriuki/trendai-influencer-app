@@ -45,6 +45,10 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+# Ensure you configure your .env file
+
+.env.example
+
 ## Run tests
 
 ````bash
@@ -69,6 +73,17 @@ Create User: Uses create-user.dto.ts.
 Login User: Uses login-user.dto.ts.
 
 Campaigns (/campaign)
+
+GET /campaigns : Retrieve all campaigns.
+
+GET /campaigns/:id : Retrieve a specific campaign by its ID
+
+POST /campaigns : Create a new campaign.
+
+
+PATCH /campaigns/:id/status : Update the status of a specific campaign.
+
+POST /campaigns/:id/submissions : Add a submission to a specific campaign
 
 Create & Manage Campaigns: Uses campaign.dto.ts.
 
