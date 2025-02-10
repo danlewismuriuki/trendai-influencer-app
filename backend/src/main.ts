@@ -8,7 +8,6 @@ dotenv.config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // CORS Configuration
   const corsOptions = {
     origin: process.env.NODE_ENV === 'production'
       ? 'https://your-frontend-domain.com'
@@ -19,17 +18,18 @@ async function bootstrap() {
   };
   app.enableCors(corsOptions);
 
-  
+
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
 
 
   app.setGlobalPrefix('api');
 
+  const PORT = process.env.PORT || 3000;
   
-  const PORT = process.env.PORT!;
-  await app.listen(PORT);
+  await app.listen(PORT, '0.0.0.0');
   console.log(`Application is running on: ${await app.getUrl()}`);
 
+  // Graceful shutdown
   process.on('SIGINT', async () => {
     console.log('Shutting down gracefully...');
     await app.close();
